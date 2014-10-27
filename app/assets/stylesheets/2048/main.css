@@ -1,0 +1,82 @@
+body{
+    
+	        background: url("bg.jpg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+
+}
+
+.bubble{
+    background-color: #D1CCCC;
+    display: block;
+    padding: 3px;
+    text-align: center;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 25px;
+    margin: 5%;
+}
+.score{
+    padding : 14px;
+}
+.grid{
+    /*margin-top: 40px;*/
+    position: relative;
+    padding: 15px;
+    background: #bbada0;
+    border-radius: 6px;
+    width: 500px;
+    height: 500px;
+    box-sizing: border-box;
+}
+
+.row{
+    margin-bottom: 4px;
+    height:25%;
+    width:100%;
+}
+
+.cell{
+    width: 106.25px;
+    position: relative;
+    height: 106.25px;
+    margin-right: 15px;
+    float: left;
+    border-radius: 10px;
+    background: rgba(238, 228, 218, 0.35);
+}
+
+.last-cell {
+    margin-right: 0;
+}
+
+.tile{
+    position: absolute;
+    border-radius: 10px;
+    background: #000000;
+    text-align: center;
+    line-height:200%;
+    vertical-align: middle;
+    font-weight: bold;
+    z-index: 10;
+    font-size: 55px; 
+    width:100%;
+    height:100%;
+}
+.box{
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); 
+}
+
+.num2{    background: #eee4da; }
+.num4{    background: #ede0c8; }
+.num8{    background: #f2b179; }
+.num16{    background: #f59563; }
+.num32{    background: #f67c5f; }
+.num64{    background: #f65e3b; }
+.num128{    background: #edcf72; }
+.num256{    background: #589c61; }
+.num512{    background: #abb850; font-size: 50px; }
+.num1024{    background: #edc53f; font-size: 45px;}
+.num2048{    background: #000000; font-size: 45px; color:white;}

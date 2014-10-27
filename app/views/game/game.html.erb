@@ -1,0 +1,154 @@
+ <script type="text/javascript" language="javascript">
+   //======= Send Ajax To Move Cells
+   function move(dir)
+   {
+      $.ajax({
+           url : 'move',
+           type : 'POST',
+           data: {id:1,direction:dir},   
+           tryCount : 0,
+           retryLimit : 3,
+           success : function(json) {
+            
+              for(var i=1;i<=4;i++){
+                for(var j=1;j<=4;j++){
+                  
+                  var id='#c'+i+j;
+                  var jsonId=(i*10)+j;
+                  var value=json[jsonId.toString()];
+                 
+                  // if cell is not empty
+                  if(value!=0) {
+                    var valueStyle=value;
+                    if(value>2048) 
+                        valueStyle=2048;
+                    $(id).empty();
+                    $(id).append('<div class="tile num'+valueStyle+'">'+value+'</div>');
+                  }
+                  else
+                    $(id).empty();
+                }
+              }
+            },
+          
+        });
+   }
+
+   //========= Keys Events
+    document.onkeydown = function(event) {
+      event = event || window.event;
+      switch (event.keyCode) {
+          case 37: //left
+              move(1);
+              event.preventDefault();
+              break;
+          case 38: //up
+              move(3);
+              event.preventDefault();
+              break;
+          case 39: //right
+              move(2);
+              event.preventDefault();
+              break;
+          case 40: //down
+              move(4);
+              event.preventDefault();
+              break;
+      }
+   };
+
+</script>
+
+<%= player_id %>
+
+<input type="button" id="test" name="test" value="Click Me" />
+
+ <body>
+        <table width="100%" border="0">
+            <tr>
+                <td align="center" colspan="2">
+                    <input type="image" src="css/2048.png" alt="2048" width="450">
+                </td>
+            </tr>
+
+            <tr>      
+                <td align="right" class="bubble score">
+                    <label id="score">Score : 0</label>
+                </td>
+                <td width="70%" align="center" style="vertical-align:top" rowspan="3">
+                    <div align="right">
+                        <input type="image" src="css/replay.png" alt="Replay" height="42" width="42" id="replay">
+                    </div>
+                    <div class="grid">
+                        <!--======= First Row=========-->
+                        <div class="row">
+                            <div class="cell" id="c11">
+                                <div class="tile box num2">2</div>
+                            </div>
+                            <div class="cell" id="c12"></div>
+                            <div class="cell" id="c13"></div>
+                            <div class="cell last-cell" id="c14"></div>
+                        </div>
+                        <!--======= First Row=========-->
+
+                        <!--======= Second Row=========-->
+                        <div class="row">
+                            <div class="cell" id="c21"></div>
+                            <div class="cell" id="c22"></div>
+                            <div class="cell" id="c23">
+                                <div class="tile box num4">4</div>
+                            </div>
+                            <div class="cell last-cell" id="c24"></div>
+                        </div>
+                        <!--======= Second Row=========-->
+
+                        <!--======= Third Row=========-->
+                        <div class="row">
+                            <div class="cell" id="c31"></div>
+                            <div class="cell" id="c32"></div>
+                            <div class="cell" id="c33"></div>
+                            <div class="cell last-cell" id="c34"></div>
+                        </div>
+                        <!--======= Third Row=========-->
+
+                        <!--======= Fourth Row=========-->
+                        <div class="row">
+                            <div class="cell" id="c41"></div>
+                            <div class="cell" id="c42"></div>
+                            <div class="cell" id="c43"></div>
+                            <div class="cell last-cell" id="c44"></div>
+                        </div>
+                        <!--======= Fourth Row=========-->
+
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="bubble">
+                    <h4>Choose Game Style</h4>
+                    <input type="image" src="images/circle.png" alt="Circle" height="50" width="50" id="circle">
+                    &nbsp;&nbsp;&nbsp;
+                    <input type="image" src="css/square.png" alt="Square" height="50" width="50" id="square">
+                </td>
+
+
+
+
+            </tr>
+            <tr>
+                <td class="bubble">
+                    <h4>HOW TO PLAY</h4>                     
+                    <p style="font-size: 18px;"> Use your arrow keys to move the tiles.   <br/>
+                        When two tiles with the same number touch, they merge into one!
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <hr/>
+    <center>Copyright &copy; 2014 by Yameni Ali.
+               All Rights Reserved.
+    </center>
+</body>
+
+

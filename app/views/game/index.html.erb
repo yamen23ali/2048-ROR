@@ -1,0 +1,10 @@
+<html>
+<body>
+<h1>Please Enter Your Name</h1>
+<%= form_tag("/game/main/", :method=>"post") do %>
+  <label>Name :</label>
+  <%= text_field_tag(:id) %>
+  <%= submit_tag("Sign In", :class=>"btn") %>
+<% end %>
+</body>
+</html>
